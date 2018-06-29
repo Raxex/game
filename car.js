@@ -23,8 +23,8 @@ function car(){
     }
     
     this.show = function(){
-        //fill(255,0,0);
-        fill(this.randomizer(),this.randomizer(),this.randomizer()); 
+        fill(255,0,0);
+        //fill(this.randomizer(),this.randomizer(),this.randomizer()); 
         ellipse(this.x,this.y,this.ancho,this.largo);
     }
     
@@ -59,7 +59,8 @@ function car(){
     this.salto=function(){
         var audio = new Audio('audio_file.mp3');
         audio.play();
-
+        
+        
         /*this.sonido = new Howl(
             {
                 urls: ['C:\Users\HP\Desktop\666\game}\jump.mp3']
