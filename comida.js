@@ -20,6 +20,7 @@ function comida(x, y){
 
         this.esComido=function(car){
             if(car.x > this.varx && car.x < this.varx+this.ancho && car.y > this.vary && car.y < this.vary+this.largo){
+                car.incrementarTamano();
                 return true;
             }
         }

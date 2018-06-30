@@ -7,7 +7,7 @@ function car(){
     this.gravity=1;
     this.velocity=0;
     this.lift=-20;
-    this.counter=1;
+    this.counter=0;
 
     this.randomizer=function(){
         var rand=Math.floor(Math.random() * 256);
@@ -33,7 +33,7 @@ function car(){
         this.y+=this.velocity;
       
         if(this.chequear()==true){
-            alert("Te moriste wey e hiciste "+this.counter+" saltos");
+            alert("Te moriste wey e hiciste "+this.counter+" saltos ");
             location.reload();
         }
          

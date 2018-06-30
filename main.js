@@ -41,6 +41,14 @@ function randomizer(){
 
 }
 
+function generaScore(){
+    textSize(32);
+    text("Puntaje "+puntaje, 0, 32);
+    fill(255, 0, 0);
+    text("Saltos "+car.counter, 0, 64);
+    fill(255, 0, 0);
+}
+
 function updateColor(){
 
     background(randomizer(),randomizer(),randomizer());
@@ -51,7 +59,7 @@ function draw(){
 
     background("black");
     car.update();
-
+    
     updating();
     car.show();
 
@@ -59,8 +67,10 @@ function draw(){
         comidas.push(new comida(x,y));
     }
     for (var i=comidas.length-1;i>=0;i--){
+        
         comidas[i].show();
         comidas[i].update();
+        generaScore();
         if(comidas[i].fueraDePantalla()){
             comidas.splice(i,1);
         }
@@ -70,7 +80,6 @@ function draw(){
             comidas.push(new comida(x,y));
             var sndComido = new Audio('munch.mp3');
             sndComido.play();
-            console.log(puntaje)
         }
     }
 
@@ -83,7 +92,7 @@ function keyPressed(){
     if(key==' '){
         //console.log("say nigger");
         car.up();
-        car.incrementarTamano();
+        
         car.salto();
         
         //document.getElementById("canvas").innerHTML = "Puntaje :"+this.puntaje;
@@ -99,7 +108,7 @@ function mouseClicked(){
     
         //console.log("say nigger");
         car.up();
-        car.incrementarTamano();
+        
         car.salto();
         
         //document.getElementById("canvas").innerHTML = "Puntaje :"+this.puntaje;
