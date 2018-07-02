@@ -1,14 +1,13 @@
 function car(){
     this.y = height/2;
     this.x = width/2;
-    this.ancho=40;
-    this.largo=40;
+    this.ancho=100;
+    this.largo=100;
     this.colorRED=255;
     this.gravity=1;
     this.velocity=0;
     this.lift=-20;
     this.counter=0;
-
     this.randomizer=function(){
         var rand=Math.floor(Math.random() * 256);
         return rand;
@@ -21,11 +20,13 @@ function car(){
             this.colorRED=this.colorRED-=1;
         }
     }
-    
+    this.imagen;
+
+    this.preload =function() {
+        this.imagen = loadImage('./img/chechoFace.png');
+    }
     this.show = function(){
-        fill(255,0,0);
-        //fill(this.randomizer(),this.randomizer(),this.randomizer()); 
-        ellipse(this.x,this.y,this.ancho,this.largo);
+        image(this.imagen, this.x,this.y,this.ancho,this.largo);
     }
     
     this.update=function(){
@@ -54,19 +55,10 @@ function car(){
             this.velocity+=this.lift;
             this.y+=this.velocity;
             this.counter+=1;
-      
     }
     this.salto=function(){
         var audio = new Audio('audio_file.mp3');
         audio.play();
-        
-        
-        /*this.sonido = new Howl(
-            {
-                urls: ['C:\Users\HP\Desktop\666\game}\jump.mp3']
-            }
-        );  
-        this.sonido.play();*/
     }
     
 
